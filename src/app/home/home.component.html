@@ -1,0 +1,53 @@
+<div class="restaurant-name">
+    <h1>SAVORY HEAVEN</h1>
+</div>
+
+<div class="container">
+    <div class="card">
+        <p-galleria class="galleria" [value]="images" [responsiveOptions]="responsiveOptions"
+            [containerStyle]="{ 'max-width': '900px' }" [numVisible]="5">
+            <ng-template #item let-item>
+                <img [src]="item.itemImageSrc" class="principalImage" />
+            </ng-template>
+            <ng-template #thumbnail let-item>
+                <img [src]="item.thumbnailImageSrc" class="thumbnail" />
+            </ng-template>
+        </p-galleria>
+    </div>
+
+    <div class="card2">
+        <div class="title">
+            <h2>ABOUT US</h2>
+        </div>
+
+        <div class="content">
+            <p>Welcome to Savory Haven, where passion meets the plate! Nestled in the heart of the city, our restaurant
+                is a
+                haven for food lovers who crave an unforgettable dining experience. With a commitment to fresh
+                ingredients,
+                bold flavors, and impeccable service, we take pride in crafting dishes that tell a story of tradition,
+                innovation, and love for great food.</p>
+            <p>
+                At Savory Haven, we believe that a meal is more than just nourishment—it’s a moment to be savored. Our
+                chefs
+                blend culinary artistry with locally sourced ingredients to bring you a menu that celebrates both
+                classic
+                recipes and modern twists. Whether you're indulging in one of our signature dishes or discovering a new
+                favorite, every bite is designed to delight your senses.
+            </p>
+
+            <p>
+                Our cozy yet elegant ambiance provides the perfect setting for every occasion—be it a romantic dinner, a
+                family gathering, or a casual night out with friends. We strive to create a warm and welcoming
+                environment
+                where every guest feels like part of our extended family.
+            </p>
+
+            <p>
+                Come join us at Savory Haven and embark on a culinary journey that promises rich flavors, warm
+                hospitality,
+                and memories that linger long after the last bite. We can't wait to serve you!
+            </p>
+        </div>
+    </div>
+</div>

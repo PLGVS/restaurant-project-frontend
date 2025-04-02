@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="container__input-group">
+        <form (ngSubmit)="submitReservation()" #reservationForm="ngForm">
+            <div class="container__input-field">
+                <p-floatlabel>
+                    <input name="name" id="name" type="text" pInputText [(ngModel)]="reservationData.name" required />
+                    <label for="name">Name</label>
+                </p-floatlabel>
+            </div>
+
+            <div class="container__input-field">
+                <p-select name="peopleQtt" [options]="peopleNumber" [(ngModel)]="reservationData.peopleQtt"
+                    [checkmark]="true" [showClear]="true" placeholder="How many people?" class="w-full md:w-56"
+                    required />
+            </div>
+
+            <div class="container__input-field">
+                <p-datepicker class="" name="reservationDate" inputId="calendar-24h"
+                    [(ngModel)]="reservationData.reservationDate" [showTime]="true" dateFormat="dd/mm/yy"
+                    placeholder="Choose a date" required />
+            </div>
+
+            <div class="container__input-field">
+                <p-button label="Submit" [type]="'submit'" [disabled]="reservationForm.invalid"
+                    class="container__input-field__button"></p-button>
+            </div>
+        </form>
+    </div>
+</div>
