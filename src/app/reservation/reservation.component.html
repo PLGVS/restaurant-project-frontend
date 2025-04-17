@@ -1,29 +1,71 @@
-<div class="container">
-    <div class="container__input-group">
-        <form (ngSubmit)="submitReservation()" #reservationForm="ngForm">
-            <div class="container__input-field">
-                <p-floatlabel>
-                    <input name="name" id="name" type="text" pInputText [(ngModel)]="reservationData.name" required />
-                    <label for="name">Name</label>
-                </p-floatlabel>
-            </div>
+<div class="status-message">
+    <div class="status-message__sending" [ngStyle]="{'display': displaySending}">
+        <p-message severity="secondary">Sending confirmation email...</p-message>
+    </div>
 
-            <div class="container__input-field">
-                <p-select name="peopleQtt" [options]="peopleNumber" [(ngModel)]="reservationData.peopleQtt"
-                    [checkmark]="true" [showClear]="true" placeholder="How many people?" class="w-full md:w-56"
-                    required />
-            </div>
+    <div class="status-message__success" [ngStyle]="{'display': displaySucess}">
+        <p-message severity="success">Confirmation email send</p-message>
+    </div>
 
-            <div class="container__input-field">
-                <p-datepicker class="" name="reservationDate" inputId="calendar-24h"
-                    [(ngModel)]="reservationData.reservationDate" [showTime]="true" dateFormat="dd/mm/yy"
-                    placeholder="Choose a date" required />
-            </div>
+    <div class="status-message__error" [ngStyle]="{'display': displayError}">
+        <p-message severity="error">Confirmation email can't be send</p-message>
+    </div>
 
-            <div class="container__input-field">
-                <p-button label="Submit" [type]="'submit'" [disabled]="reservationForm.invalid"
-                    class="container__input-field__button"></p-button>
-            </div>
-        </form>
+</div>
+<div class="main">
+    <div class="restaurant-name">
+        <h1>SAVORY HEAVEN</h1>
+    </div>
+    <div class="container">
+        <div class="container__input-group">
+            <p-toast />
+            <form (ngSubmit)="submitReservation()" #reservationForm="ngForm">
+                <h1>Reservation</h1>
+                <div class="container__input-field">
+                    <p-floatlabel>
+                        <input name="customerName" id="customerName" type="text" pInputText
+                            [(ngModel)]="reservationData.customerName" required />
+                        <label for="name">Name</label>
+                    </p-floatlabel>
+                </div>
+
+                <div class="container__input-field">
+                    <p-floatlabel>
+                        <input name="customerEmail" id="customerEmail" type="text" pInputText
+                            [(ngModel)]="reservationData.customerEmail" required />
+                        <label for="email">Email</label>
+                    </p-floatlabel>
+                </div>
+
+                <div class="container__input-field">
+                    <p-select name="tableNumber" [options]="tables" [(ngModel)]="selectedTable"
+                        placeholder="Select a table" (onChange)="onTableOrDateChange()">
+                    </p-select>
+                </div>
+
+                <div class="container__input-field">
+                    <p-select name="personsNumber" [options]="peopleNumber" [(ngModel)]="reservationData.personsNumber"
+                        [checkmark]="true" [showClear]="true" placeholder="How many people?" class="w-full md:w-56"
+                        required />
+                </div>
+
+                <div class="container__input-field">
+                    <p-date-picker name="reservationDate" [(ngModel)]="reservationData.reservationDate"
+                        placeholder="Select a date" (onSelect)="onTableOrDateChange()" dateFormat="dd/mm/yy">
+                    </p-date-picker>
+                </div>
+
+                <div class="container__input-field" *ngIf="timeSlots.length > 0">
+                    <p-selectButton name="reservationTime" [options]="timeSlots" optionLabel="label" optionValue="value"
+                        [(ngModel)]="selectedTime" styleClass="w-full">
+                    </p-selectButton>
+                </div>
+
+                <div class="container__input-field">
+                    <p-button label="Submit" [type]="'submit'" [disabled]="reservationForm.invalid"
+                        class="container__input-field__button" icon="pi pi-check"></p-button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

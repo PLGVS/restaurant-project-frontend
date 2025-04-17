@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
@@ -19,5 +19,9 @@ export class ApiService {
         return throwError(() => new Error('Falha na reserva. Tente novamente mais tarde'));
       })
     )
+  }
+
+  getUnavailableTimes(params: HttpParams) {
+    return this.http.get<string[]>(this.baseUrl + '/unavailable-times', { params })
   }
 }

@@ -33,32 +33,6 @@ export class HomeComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.items = [
-      {
-        label: 'Home',
-        icon: 'pi pi-home',
-        routerLink: ['/home']
-      },
-      {
-        label: 'Menu',
-        items: [
-          {
-            label: 'Food'
-          },
-          {
-            label: 'Drinks'
-          },
-          {
-            label: 'Cocktails'
-          }
-        ]
-      },
-      {
-        label: 'Reservations',
-        routerLink: ['/reservations']
-      }
-    ]
-
     this.images = [
       {
         itemImageSrc: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/56/71/59/atmosphere.jpg',
