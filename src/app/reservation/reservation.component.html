@@ -12,8 +12,80 @@
     </div>
 
 </div>
-<div class="main">
-    <div class="restaurant-name">
+<div class="container">
+    <div class="container__top-logo">
+        <button>
+            <a href="/"><img src="/Logo-text.png" alt=""></a>
+        </button>
+    </div>
+    <div class="container__reservation">
+        <div class="container__reservation__image">
+            <img src="/reserved-image.webp" alt="">
+        </div>
+
+        <div class="container__reservation__form">
+            <H1>RESERVATION</H1>
+            <p>Fill the formulary bellow to make your reservation. Please, arrive with advance to avoid
+                unforenseen events!</p>
+
+
+            <div class="container__reservation__form__date">
+
+                <p-date-picker name="reservationDate" [(ngModel)]="reservationData.reservationDate"
+                    placeholder="Select a date" (onSelect)="onTableOrDateChange()" dateFormat="dd/mm/yy"
+                    class="custom-datepicker">
+                </p-date-picker>
+
+
+                <p-selectButton name="reservationTime" [options]="timeSlots" optionLabel="label" optionValue="value"
+                    [(ngModel)]="selectedTime" styleClass="w-full" class="custom-times">
+                </p-selectButton>
+
+            </div>
+
+            <div class="container__reservation__form__input">
+                <form (ngSubmit)="submitReservation()" #reservationForm="ngForm">
+                    <div class="name">
+                        <p-floatlabel>
+                            <input name="customerName" id="customerName" type="text" pInputText
+                                [(ngModel)]="reservationData.customerName" required />
+                            <label for="name">Name</label>
+                        </p-floatlabel>
+                    </div>
+
+                    <div class="email">
+                        <p-floatlabel>
+                            <input name="customerEmail" id="customerEmail" type="text" pInputText
+                                [(ngModel)]="reservationData.customerEmail" required />
+                            <label for="email">Email</label>
+                        </p-floatlabel>
+                    </div>
+
+
+
+                    <div class="table-persons">
+                        <p-select name="tableNumber" [options]="tables" [(ngModel)]="selectedTable"
+                            placeholder="Select a table" (onChange)="onTableOrDateChange()">
+                        </p-select>
+
+                        <p-select name="personsNumber" [options]="peopleNumber"
+                            [(ngModel)]="reservationData.personsNumber" [checkmark]="true" [showClear]="true"
+                            placeholder="How many people?" class="w-full md:w-56" required />
+                    </div>
+
+                    <div class="button">
+                        <p-button label="Submit" [type]="'submit'" [disabled]="reservationForm.invalid" [disabled]=""
+                            class="container__input-field__button" icon="pi pi-check"></p-button>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="restaurant-name">
         <h1>SAVORY HEAVEN</h1>
     </div>
     <div class="container">
@@ -67,5 +139,5 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div> -->
 </div>

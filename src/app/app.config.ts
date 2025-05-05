@@ -2,7 +2,7 @@ import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } fr
 import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config'
-import Aura from '@primeng/themes/aura'
+import Material from '@primeng/themes/material'
 import { routes } from './app.routes';
 import { HttpClient, provideHttpClient } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
@@ -14,11 +14,10 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
-        preset: Aura,
+        preset: Material,
         options: {
           prefix: 'p',
-          darkModeSelector: 'system',
-          cssLayer: false
+          darkModeSelector: false || 'none'
         }
       }
     }),

@@ -1,53 +1,97 @@
-<div class="restaurant-name">
-    <h1>SAVORY HEAVEN</h1>
+<div class="section1">
+    <div class="section1__home">
+        <div class="section1__home__nav">
+            <img src="/Logo.png" alt="">
+            <ul>
+                <li><button><a href="#section2">Menu</a></button></li>
+                <li><button><a href="#section3">Reservations</a></button></li>
+                <li><button><a href="#section4">About us</a></button></li>
+                <li><button><a href="#section5">Contacts</a></button></li>
+            </ul>
+        </div>
+
+        <div class="section1__home__slogan">
+            <img src="/background.png" alt="">
+        </div>
+    </div>
 </div>
 
-<div class="container">
-    <div class="card">
-        <p-galleria class="galleria" [value]="images" [responsiveOptions]="responsiveOptions"
-            [containerStyle]="{ 'max-width': '900px' }" [numVisible]="5">
-            <ng-template #item let-item>
-                <img [src]="item.itemImageSrc" class="principalImage" />
-            </ng-template>
-            <ng-template #thumbnail let-item>
-                <img [src]="item.thumbnailImageSrc" class="thumbnail" />
-            </ng-template>
-        </p-galleria>
+<div class="section2">
+    <div class="section2__image">
+        <img src="/food-image.webp" alt="">
     </div>
 
-    <div class="card2">
-        <div class="title">
-            <h2>ABOUT US</h2>
-        </div>
+    <div class="section2__text" id="section2">
+        <h1>OUR MENU</h1>
+        <p>
+            At Savory Heaven, every dish is a tribute to refined taste and culinary craftsmanship.
+            Our menu brings together timeless flavors and contemporary elegance, curated with the finest ingredients to
+            create a truly heavenly dining experience.
+        </p>
+        <button [routerLink]="['/menu']">Menu</button>
+    </div>
+</div>
 
-        <div class="content">
-            <p>Welcome to Savory Haven, where passion meets the plate! Nestled in the heart of the city, our restaurant
-                is a
-                haven for food lovers who crave an unforgettable dining experience. With a commitment to fresh
-                ingredients,
-                bold flavors, and impeccable service, we take pride in crafting dishes that tell a story of tradition,
-                innovation, and love for great food.</p>
-            <p>
-                At Savory Haven, we believe that a meal is more than just nourishment—it’s a moment to be savored. Our
-                chefs
-                blend culinary artistry with locally sourced ingredients to bring you a menu that celebrates both
-                classic
-                recipes and modern twists. Whether you're indulging in one of our signature dishes or discovering a new
-                favorite, every bite is designed to delight your senses.
-            </p>
+<div class="section3">
+    <div class="section3__text" id="section3">
+        <h1>RESERVATIONS</h1>
+        <p>
+            At Savory Heaven, we believe that every memorable meal begins with a warm welcome.
+            Whether you're planning an intimate dinner, a special celebration,
+            or a refined evening out, we invite you to reserve your place in advance and allow us to prepare an
+            experience tailored just for you.
+        </p>
+        <button [routerLink]="['/reservation']">Book a table</button>
+    </div>
 
-            <p>
-                Our cozy yet elegant ambiance provides the perfect setting for every occasion—be it a romantic dinner, a
-                family gathering, or a casual night out with friends. We strive to create a warm and welcoming
-                environment
-                where every guest feels like part of our extended family.
-            </p>
+    <div class="section3__image">
+        <img src="/reservation-image.jpg" alt="">
+    </div>
+</div>
 
-            <p>
-                Come join us at Savory Haven and embark on a culinary journey that promises rich flavors, warm
-                hospitality,
-                and memories that linger long after the last bite. We can't wait to serve you!
-            </p>
-        </div>
+<div class="section4" id="section4">
+    <div class="section4__image">
+        <img src="/about-us-image.jpg" alt="">
+    </div>
+
+    <div class="section4__text">
+        <h1>ABOUT US</h1>
+        <p>
+            Founded with a passion for refined flavors and heartfelt hospitality, our restaurant brings together
+            tradition, creativity, and elegance on every plate.
+            From carefully sourced ingredients to the artistry in each dish, our mission is to offer moments of true
+            indulgence in an atmosphere of warmth and grace.
+            Whether you’re joining us for a celebration or a quiet escape, we welcome you to experience the taste of
+            something heavenly.
+        </p>
+    </div>
+</div>
+
+<div class="section5" id="section5">
+    <div class="section5__socials">
+        <ul>
+            <li>
+                <img src="/linkedin.png" alt="">
+                <button>
+                    <a href="https://www.linkedin.com/in/pedro-luis-gaspar-vieira-de-souza-02b123211/" target="_blank"
+                        rel="noopener noreferrer">LinkedIn</a>
+                </button>
+            </li>
+            <li>
+                <img src="/github.png" alt="">
+                <button><a href="https://github.com/PLGVS" target="_blank" rel="noopener noreferrer">GitHub</a></button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section5__text">
+        <p>
+            This is a fictional restaurant created for study purposes, thank you for taking the time to take a look at
+            my project. Visit my GitHub to see more of my work!
+        </p>
+    </div>
+
+    <div class="section5__credits">
+        <p>Developed by: Pedro Luis Gaspar Vieira de Souza</p>
     </div>
 </div>
