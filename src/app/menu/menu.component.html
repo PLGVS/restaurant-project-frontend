@@ -7,10 +7,481 @@
             </button>
         </div>
         <div class="container__top-logo__nav">
-            <select name="menu-options" id="id-menu-options" multiple>
-                <option value="1">Breakfast</option>
-                <option value="2">Salad</option>
+            <select name="menu-options" id="id-menu-options" (change)="visibility()" multiple>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Salad">Salad</option>
+                <option value="Soup">Soup</option>
+                <option value="MainDishes">Main Dishes</option>
+                <option value="Dessert">Dessert</option>
+                <option value="ColdDrinks">Cold Drinks</option>
             </select>
         </div>
     </div>
-</div>
+
+    <div [ngStyle]="{'display': displayBreakfast}" class="container__menu">
+        <div class="food" *ngFor="let item of myItems">
+            <div class="food__image">
+                <img src="{{ item.imageUrl }}" alt="">
+            </div>
+            <div class="food__description">
+                <h3>{{ item.name }}</h3>
+                <p>Ingredients</p>
+                <p>{{ item.ingredients }}</p>
+                <h3>US${{ item.price }}</h3>
+            </div>
+        </div>
+        <!-- <div class="food">
+            <div class="food__image">
+                <img src="breakfast/Baked-Eggs.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Baked Eggs</h3>
+                <p>Ingredients</p>
+                <p>Eggs, Mushrooms, Spinach, Garlic, Parmesan</p>
+                <h3>US$ 5.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="breakfast/Ricotta-Pancakes.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Ricotta Pancakes</h3>
+                <p>Ingredients</p>
+                <p>Ricotta Pancakes, Strawberries, Maple Syrup</p>
+                <h3>US$ 5.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="breakfast/Spanish-Omelette-Tortilla.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Spanish Tortilla (Omelette)</h3>
+                <p>Ingredients</p>
+                <p>Potatoes, Eggs, Sea Salt, Olive Oil</p>
+                <h3>US$ 5.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="breakfast/Cheesy-Grits.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Cheesy Grits with Fried Eggs and Bacon</h3>
+                <p>Ingredients</p>
+                <p>Fried Egg, Burst Tomatoes, Avocado, Crumbled Bacon</p>
+                <h3>US$ 5.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="breakfast/English-Breakfast.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Full English Breakfast</h3>
+                <p>Ingredients</p>
+                <p>Bacon, Sausages, Eggs, Grilled Tomatoes, Sautéed mushrooms, Toasted Bread</p>
+                <h3>US$ 5.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="breakfast/Sweet-Potato.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Sweet Potato & Black Bean</h3>
+                <p>Ingredients</p>
+                <p>Potatoes, Black Beans, Quinoa Rice, Avocado</p>
+                <h3>US$ 5.00</h3>
+            </div>
+        </div> -->
+    </div>
+
+    <div [ngStyle]="{'display': displaySalad}" class="container__menu">
+        <div class="food">
+            <div class="food__image">
+                <img src="salad/Quinoa-Roasted.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Roasted Veggie Quinoa Salad</h3>
+                <p>Ingredients</p>
+                <p>Quinoa, Eggplant, Zucchini, Red Bell Pepper, Cherry Tomatoes</p>
+                <h3>US$ 2.50</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="salad/Chickpea-Tuna.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Chickpea and Tuna Salad</h3>
+                <p>Ingredients</p>
+                <p>Chickpeas, Tuna, Potatoes, Apple, Mayonnaise</p>
+                <h3>US$ 2.50</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="salad/Brown-Rice.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Brown Rice and Chicken Salad</h3>
+                <p>Ingredients</p>
+                <p>Brown Rice, Chicken, Red Bell Pepper, Cherry Tomatoes, Carrot, Apple</p>
+                <h3>US$ 2.50</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="salad/Lentil-Veggie.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Lentil and Veggie Salad</h3>
+                <p>Ingredients</p>
+                <p>Lentils, Carrots, Cucumber, Cherry Tomatoes, Red Onion, Fresh Parsley</p>
+                <h3>US$ 2.50</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="salad/Whole-Wheat-Pasta.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Whole Wheat Pasta Salad with Vegetables</h3>
+                <p>Ingredients</p>
+                <p>Whole Wheat Pasta, Broccoli, Cherry Tomatoes, Carrots, Corn, Black Olives</p>
+                <h3>US$ 2.50</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="salad/White-Beans.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>White Bean and Cod Salad</h3>
+                <p>Ingredients</p>
+                <p>White Beans, Codfish, Red Onion, Colorful Bell Peppers</p>
+                <h3>US$ 2.50</h3>
+            </div>
+        </div>
+    </div>
+
+    <div [ngStyle]="{'display': displaySoup}" class="container__menu">
+        <div class="food">
+            <div class="food__image">
+                <img src="soup/Butternut-Squash.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Butternut Squash Soup</h3>
+                <p>Ingredients</p>
+                <p>Butternut Squash, Onion, Garlic, Ginger, Vegetable Broth</p>
+                <h3>US$ 4.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="soup/Creamy-Wild.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Creamy Wild Rice Soup</h3>
+                <p>Ingredients</p>
+                <p>Wild Rice, Carrots, Celery, Mushrooms, Onion, Garlic, Vegetable Broth</p>
+                <h3>US$ 4.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="soup/Broccoli-Cheddar.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Broccoli Cheddar Soup</h3>
+                <p>Ingredients</p>
+                <p>Broccoli Florets, Cheddar Cheese, Onion, Garlic</p>
+                <h3>US$ 4.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="soup/Spiced-Carrot.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Spiced Carrot & Lentil Soup</h3>
+                <p>Ingredients</p>
+                <p>Carrots, Red Lentils, Onion, Garlic, Ground Cumin, Ground Coriander, Vegetable Broth</p>
+                <h3>US$ 4.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="soup/Vegetables-Soup.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Vegetable Soup</h3>
+                <p>Ingredients</p>
+                <p>Carrots, Celery, Potatoes, Green Beans, Corn Kernels, Tomatoes, Onion, Garlic</p>
+                <h3>US$ 4.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="soup/Potato-Leek.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Leek and Potato Soup</h3>
+                <p>Ingredients</p>
+                <p>Leeks, Potatoes, Onion, Garlic, Vegetable Broth, Chives</p>
+                <h3>US$ 4.00</h3>
+            </div>
+        </div>
+    </div>
+
+    <div [ngStyle]="{'display': displayMainDishes}" class="container__menu">
+        <div class="food">
+            <div class="food__image">
+                <img src="main-dishes/Slow-Cooked-Beef.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Beef Short Ribs with Pickles</h3>
+                <p>Ingredients</p>
+                <p>Beef Short Ribs, Garlic, Thyme, Beef Stock, Brown Sugar, Mirin</p>
+                <h3>US$ 8.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="main-dishes/Honey-Soy-Glazed-Salmon.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Honey-Soy Glazed Salmon</h3>
+                <p>Ingredients</p>
+                <p>Salmon Fillets, Honey, Soy Sauce, Dijon Mustard, Oranges, Vegetables</p>
+                <h3>US$ 8.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="main-dishes/Cashew-Chicken.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Cashew Chicken and Asparagus Stir-Fry</h3>
+                <p>Ingredients</p>
+                <p>Chicken Breast, Aspargus, Cashews, Garlic, Soy Sauce, Oyster sauce, Cornstarch</p>
+                <h3>US$ 8.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="main-dishes/Moroccan-Beef.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Moroccan Beef Stew with Dates and Apricots</h3>
+                <p>Ingredients</p>
+                <p>Beef Chunks, Onion, Garlic, Dates, Apricots, Cinnamon, Cumin, Beef Broth</p>
+                <h3>US$ 8.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="main-dishes/Grilled-Zucchini.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Grilled Zucchini and Halloumi Pitas</h3>
+                <p>Ingredients</p>
+                <p>Zucchini, Halloumi Cheese, Pita Bread</p>
+                <h3>US$ 8.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="main-dishes/Greek-Baked-Giant-Beans.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Greek Baked Giant Beans</h3>
+                <p>Ingredients</p>
+                <p>Large White Beans, Tomatoes, Onion, Garlic, Carrots, Celery</p>
+                <h3>US$ 8.00</h3>
+            </div>
+        </div>
+    </div>
+
+    <div [ngStyle]="{'display': displayDessert}" class="container__menu">
+
+        <div class="food" *ngFor="let item of myItems">
+            <div class="food__image">
+                <img src="{{ item.imageUrl }}" alt="">
+            </div>
+            <div class="food__description">
+                <h3>{{ item.name }}</h3>
+                <p>Ingredients</p>
+                <p>{{ item.ingredients }}</p>
+                <h3>{{ item.price }}</h3>
+            </div>
+        </div>
+
+        <!-- <div class="food">
+            <div class="food__image">
+                <img src="dessert/Millionaires-Shortbread.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Millionaire's Shortbread</h3>
+                <p>Ingredients</p>
+                <p>Toasted Flour Shortbread Base, Caramel Layer, Butter-Chocolate Ganache Topping</p>
+                <h3>US$ 4.50</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="dessert/Grandma-Lemon-Pie.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Grandma's Lemon Meringue Pie</h3>
+                <p>Ingredients</p>
+                <p>Pre-baked Pie Crust, Lemon Filling, Meringue Topping</p>
+                <h3>US$ 4.50</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="dessert/Chocolate-Banana-Icecream.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Chocolate Banana Nice Cream</h3>
+                <p>Ingredients</p>
+                <p>Frozen Bananas, Cocoa Powder, Vanilla Extract</p>
+                <h3>US$ 4.50</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="dessert/Texas-Sheet-Cake.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Texas Sheet Cake with Fudge Icing</h3>
+                <p>Ingredients</p>
+                <p>Chocolate Cake Base, Fudge Icing</p>
+                <h3>US$ 4.50</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="dessert/Quindim.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Quindim</h3>
+                <p>Ingredients</p>
+                <p>Sugar, Egg Yolks, Ground Coconut</p>
+                <h3>US$ 4.50</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="dessert/Clafoutis.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Clafoutis</h3>
+                <p>Ingredients</p>
+                <p>Cherries, Batter</p>
+                <h3>US$ 4.50</h3>
+            </div>
+        </div> -->
+    </div>
+
+    <div [ngStyle]="{'display': displayColdDrinks}" class="container__menu">
+        <div class="food">
+            <div class="food__image">
+                <img src="cold-drinks/Iced-Matcha-Latte.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Iced Matcha Latte</h3>
+                <p>Ingredients</p>
+                <p>Matcha Green Tea Powder, Cold Milk, Ice Cubes,</p>
+                <h3>US$ 2.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="cold-drinks/Mango-Smoothie.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Mango Smoothie</h3>
+                <p>Ingredients</p>
+                <p>Frozen Mango, Greek Yogurt, Cold Milk, Ice Cubes</p>
+                <h3>US$ 2.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="cold-drinks/Lemon-Mint.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Lemon Mint Sparkling Water</h3>
+                <p>Ingredients</p>
+                <p>Sparkling Water, Fresh Lemon Juice, Fresh Mint Leaves, Ice Cubes</p>
+                <h3>US$ 2.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="cold-drinks/Cold-Brew-Coffee.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Cold Brew Coffee</h3>
+                <p>Ingredients</p>
+                <p>Coarse Ground Coffee, Cold Water, Ice Cubes, </p>
+                <h3>US$ 2.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="cold-drinks/Strawberry-Iced-Tea.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Strawberry Iced Tea</h3>
+                <p>Ingredients</p>
+                <p>Black Tea, Fresh Strawberry Purée, Lemon juice, Ice Cubes, Mint Leaves</p>
+                <h3>US$ 2.00</h3>
+            </div>
+        </div>
+
+        <div class="food">
+            <div class="food__image">
+                <img src="cold-drinks/Watermelon-Lime-Refresher.jpg" alt="">
+            </div>
+            <div class="food__description">
+                <h3>Watermelon Lime Refresher</h3>
+                <p>Ingredients</p>
+                <p>Fresh Watermelon Juice, Fresh Lime Juice, Cold Water, Mint Leaves, Ice Cubes</p>
+                <h3>US$ 2.00</h3>
+            </div>
+        </div>
+    </div>

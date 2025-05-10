@@ -10,7 +10,7 @@ import { MenubarModule } from 'primeng/menubar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HomeComponent, ReservationComponent, MenubarModule],
+  imports: [RouterOutlet, MenubarModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

@@ -4,7 +4,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { SelectModule } from 'primeng/select';
 import { DatePicker } from 'primeng/datepicker';
-import { ApiService } from '../services/api.service';
+import { ReservationService } from '../services/reservation.service';
 import { ButtonModule } from 'primeng/button';
 import { format, parse } from 'date-fns'
 import { InputGroupModule } from 'primeng/inputgroup';
@@ -78,7 +78,7 @@ export class ReservationComponent implements OnInit {
       reservationTime: null
     };
 
-  constructor(private apiService: ApiService,
+  constructor(private reservationService: ReservationService,
     private messageService: MessageService) { }
 
 
@@ -119,14 +119,14 @@ export class ReservationComponent implements OnInit {
 
 
 
-      this.apiService.getUnavailableTimes(params).subscribe((unavailable: string[]) => {
+      this.reservationService.getUnavailableTimes(params).subscribe((unavailable: string[]) => {
         this.timeSlots = this.times.map(slot => ({
           ...slot,
           disabled: unavailable.includes(slot.value)
         }))
       }
-      ),
-        console.log(this.timeSlots)
+      )
+      console.log(this.timeSlots)
 
     }
   }
@@ -160,7 +160,7 @@ export class ReservationComponent implements OnInit {
 
     console.log(payload)
 
-    this.apiService.bookTable(payload).subscribe(
+    this.reservationService.bookTable(payload).subscribe(
       (newReservation) => {
         this.reservations.unshift(newReservation);
         this.displaySending = 'none';

@@ -5,7 +5,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class ReservationService {
   private baseUrl = 'http://localhost:5000/reservation'
 
   constructor(private http: HttpClient) { }
@@ -24,4 +24,5 @@ export class ApiService {
   getUnavailableTimes(params: HttpParams) {
     return this.http.get<string[]>(this.baseUrl + '/unavailable-times', { params })
   }
+
 }
