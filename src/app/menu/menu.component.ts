@@ -10,8 +10,20 @@ import { MenuService } from '../services/menu.service';
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
   constructor(private menuService: MenuService) { }
+
+  ngOnInit(): void {
+    this.menuService.getCategories().subscribe({
+      next: (value) => {
+        for (let i = 0; i < value.length; i++) {
+          let category = value[i]
+          const obj = JSON.parse(category)
+          this.categories.push({ categoryName: obj.categoryName, dishes: obj.dishes })
+        }
+      }
+    })
+  }
 
   stateOptions: any[] = [{ label: 'Breakfast', value: 'breakfast' }, { label: 'Salad', value: 'salad' }];
 
@@ -24,7 +36,9 @@ export class MenuComponent {
   displayDessert = 'none';
   displayColdDrinks = 'none';
 
-  myItems: { name: String, imageUrl: String, ingredients: String[], price: String }[] = [
+  categories: { categoryName: String, dishes: String[] }[] = []
+
+  dishes: { name: String, imageUrl: String, ingredients: String[], price: String }[] = [
 
   ]
 
@@ -84,21 +98,21 @@ export class MenuComponent {
         break;
     }
 
-    this.myItems = []
+    this.dishes = []
 
     this.menuService.getDishes(option).subscribe({
       next: (value) => {
         for (let i = 0; i < value.length; i++) {
-          let test = value[i]
-          const obj = JSON.parse(test)
+          let dish = value[i]
+          const obj = JSON.parse(dish)
           let price: number = obj.price
           let parsedPrice: string = price.toFixed(2)
-          this.myItems.push({ name: obj.name, imageUrl: obj.imageUrl, ingredients: obj.ingredients, price: parsedPrice })
+          this.dishes.push({ name: obj.name, imageUrl: obj.imageUrl, ingredients: obj.ingredients, price: parsedPrice })
         }
+        console.log(this.dishes[0])
       }
     })
 
-    this.myItems.push();
   }
 
 }

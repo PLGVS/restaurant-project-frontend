@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="container__login">
+        <img src="/Logo-Login.png" alt="">
+        <form (ngSubmit)="submitLogin()" #loginForm="ngForm">
+            <label for="login">Login</label>
+            <input type="text" name="login" id="login" [(ngModel)]="loginData.login">
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" [(ngModel)]="loginData.password">
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+        </form>
+    </div>
+</div>

@@ -8,26 +8,28 @@
         </div>
         <div class="container__top-logo__nav">
             <select name="menu-options" id="id-menu-options" (change)="visibility()" multiple>
-                <option value="Breakfast">Breakfast</option>
+                <option value="{{ category.categoryName }}" *ngFor="let category of categories">{{ category.categoryName
+                    }}</option>
+                <!-- <option value="Breakfast">Breakfast</option>
                 <option value="Salad">Salad</option>
                 <option value="Soup">Soup</option>
                 <option value="MainDishes">Main Dishes</option>
                 <option value="Dessert">Dessert</option>
-                <option value="ColdDrinks">Cold Drinks</option>
+                <option value="ColdDrinks">Cold Drinks</option> -->
             </select>
         </div>
     </div>
 
-    <div [ngStyle]="{'display': displayBreakfast}" class="container__menu">
-        <div class="food" *ngFor="let item of myItems">
+    <div class="container__menu">
+        <div class="food" *ngFor="let dish of dishes">
             <div class="food__image">
-                <img src="{{ item.imageUrl }}" alt="">
+                <img src="{{ dish.imageUrl }}" alt="">
             </div>
             <div class="food__description">
-                <h3>{{ item.name }}</h3>
+                <h3>{{ dish.name }}</h3>
                 <p>Ingredients</p>
-                <p>{{ item.ingredients }}</p>
-                <h3>US${{ item.price }}</h3>
+                <p>{{ dish.ingredients }}</p>
+                <h3>US${{ dish.price }}</h3>
             </div>
         </div>
         <!-- <div class="food">
@@ -103,7 +105,7 @@
         </div> -->
     </div>
 
-    <div [ngStyle]="{'display': displaySalad}" class="container__menu">
+    <!-- <div [ngStyle]="{'display': displaySalad}" class="container__menu">
         <div class="food">
             <div class="food__image">
                 <img src="salad/Quinoa-Roasted.jpg" alt="">
@@ -327,19 +329,19 @@
 
     <div [ngStyle]="{'display': displayDessert}" class="container__menu">
 
-        <div class="food" *ngFor="let item of myItems">
+        <div class="food" *ngFor="let dish of dishes">
             <div class="food__image">
-                <img src="{{ item.imageUrl }}" alt="">
+                <img src="{{ dish.imageUrl }}" alt="">
             </div>
             <div class="food__description">
-                <h3>{{ item.name }}</h3>
+                <h3>{{ dish.name }}</h3>
                 <p>Ingredients</p>
-                <p>{{ item.ingredients }}</p>
-                <h3>{{ item.price }}</h3>
+                <p>{{ dish.ingredients }}</p>
+                <h3>{{ dish.price }}</h3>
             </div>
-        </div>
+        </div> -->
 
-        <!-- <div class="food">
+    <!-- <div class="food">
             <div class="food__image">
                 <img src="dessert/Millionaires-Shortbread.jpg" alt="">
             </div>
@@ -410,7 +412,7 @@
                 <h3>US$ 4.50</h3>
             </div>
         </div> -->
-    </div>
+    <!-- </div>
 
     <div [ngStyle]="{'display': displayColdDrinks}" class="container__menu">
         <div class="food">
@@ -484,4 +486,4 @@
                 <h3>US$ 2.00</h3>
             </div>
         </div>
-    </div>
+    </div> -->
